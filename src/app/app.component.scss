@@ -1,0 +1,40 @@
+@import '../scss/variables';
+@import '../scss/mixins';
+
+.contenedor{
+    grid-row: 1;
+    grid-column: 1;
+    background-image: url(../assets/img/fondo.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    @include Asmall(){
+        background-image: none;
+    }
+}
+
+.superContenedor{
+    display: grid;
+    grid-template-rows: 1;
+    .splash{
+        grid-row: 1;
+        grid-column: 1;
+        background-color: white;
+        height: 100vh;
+        z-index: 2;
+        display: grid;
+        img{
+            width: 30%;
+            align-self: center;
+            justify-self: center;
+            @include smallTablet(){
+                width: 15%;
+            }
+            @include tabletLaptop(){
+                width: 10%;
+            }
+        }
+    }
+}

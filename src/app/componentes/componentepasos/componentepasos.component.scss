@@ -1,0 +1,13 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.contenedor{
+    display: grid;
+    grid-template-columns: $margenContenido auto $margenContenido;
+    @include smallTablet(){
+        grid-template-columns: 20% auto 20%;
+    }
+    @include tabletLaptop(){
+        grid-template-columns: $margenContenido 40% 55%;
+    }
+}

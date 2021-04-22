@@ -1,0 +1,39 @@
+@import './../../../../scss/variables';
+@import './../../../../scss/mixins';
+
+.contenedor{
+    display: grid;
+    grid-template-columns: $margenContenido auto $margenContenido;
+    border-bottom: 3px solid $colorPrimario;
+    background-color: white;
+    @include smallTablet(){
+        grid-template-columns: 20% auto 20%;
+    }  
+    @include tabletLaptop(){
+        grid-template-columns: 5% 90% 5%;
+    }
+    .contLogo{
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+        @include Asmall(){
+            text-align: center;
+        }
+        .cliente{
+            width: 10%;
+            align-self: center;
+            justify-self: left;
+            @include Asmall(){
+                width: 30%;
+            }    
+        }
+        .santander{
+            width: 18%;
+            align-self: center;
+            justify-self: right;
+            @include Asmall(){
+                width: 55%;
+            }  
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@import "./../../../scss/variables";
+@import "./../../../scss/mixins";
+
+.contenedor{
+    /* margin-top: 16%; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* padding: 0 5%; */
+    @include Asmall(){
+            /* padding: 0 5%;
+            margin: 25% 5% 0 5%; */
+    }
+    .encabezado{
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        margin: 20px 0;        
+        /* padding: 5% 0; */
+        .titulo{
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+    .contenido{
+        font-size: 12px;
+        .scrollcontenido{
+            grid-column: 2;
+            height: 60vh;
+            overflow: auto;
+            padding: 0 10px;
+            /* @include Asmall(){
+                height: 80vh;
+                padding: 0;
+            }
+            @include full(){
+                height: 90vh;
+            } */
+        }
+        .parrafo{
+            text-align: justify;
+        }        
+    }
+
+}
+
+.mat-button{
+    padding: 0 !important;
+}
+
+.piepaso{
+    margin: 20px 0;
+}

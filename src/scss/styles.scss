@@ -1,0 +1,248 @@
+@import '~@angular/material/theming';
+@import 'fuentes';
+@import '~material-icons/iconfont/material-icons.css';
+@import 'mixins';
+@import 'variables';
+
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-red);
+$my-app-accent: mat-palette($mat-gray, A400, A400, A400);
+$my-app-theme: mat-light-theme($my-app-accent, $my-app-accent);
+
+@include angular-material-theme($my-app-theme);
+
+* {
+    font-family: 'Ducati font';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s;
+}
+
+/* Steps */
+/* Sombreado steps */
+.mat-horizontal-stepper-header{
+    background-color: transparent !important;
+}
+
+.mat-horizontal-stepper-header .mat-step-icon-selected{
+    background-color: #FE000C !important;
+    color: white !important;
+    border: none !important;
+}
+
+.mat-step-icon{
+    background-color: white !important;
+    color: black !important;
+    border: solid 2px #000;
+}
+
+/* Botones */
+.mat-button.mat-primary[disabled]{
+    background-color: $colorTerciario !important;
+}
+.mat-button.mat-primary{
+    background-color: $colorPrimario;
+    color: white !important;
+}
+
+/* Estilos especificos Stepper Material */
+.mat-horizontal-stepper-header-container{
+    display: grid !important;
+    grid-template-columns: repeat(3, auto) !important;
+    grid-template-rows: 1fr !important;
+    padding: 10px;
+    height: 70px;
+    background-image: url(../assets/img/moto.svg);
+    background-repeat: no-repeat;
+        @include Asmall(){
+            background-image: none;
+        }
+    }
+  
+  .mat-step-icon .mat-icon, .mat-step-icon-content{
+    text-align: center;
+  }
+  
+  .mat-horizontal-stepper-header{
+    display: grid !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .mat-step-header{
+    grid-row: 1 !important;
+    align-self: center !important;
+    justify-self: center !important;
+  }
+  
+  .mat-step-header .mat-step-header-ripple{
+    position: relative !important;
+    display: grid !important;
+    padding-top: 15px;
+  }
+  
+  .mat-horizontal-stepper-header .mat-step-icon{
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 0px !important;
+    grid-row: 2;
+  }
+  
+  .mat-step-icon .mat-icon, .mat-step-icon-content {
+    font-size: 13px !important;
+    font-weight: bold;
+  }
+  /* Orden de los componentes */
+  .mat-step-label{
+      grid-row: 1;
+      font-size: 10px;
+  }
+  
+  /* Línea */
+  .mat-stepper-horizontal-line{
+    border: 0.1px dashed #949494 !important;
+    grid-row: 1 !important;
+    margin: 0 -40px !important;
+    @include tabletLaptop(){
+        margin: 0 -60px !important;
+    }
+  }
+
+  /* Contenido Pasos */
+
+  .encabezadoPaso{
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 15px 0px;
+      p{
+        font-size: 12px;
+        align-self: center;      
+      }
+  }
+
+  p.izquierda{
+    font-weight: 500;
+    font-size: 14px;
+    @include Asmall(){
+        font-size: 12px;
+    } 
+  }
+  p.derecha{
+      color: $colorTerciario;  
+  }
+
+  /* Alineaciones Globales */
+  .izquierda{
+    justify-self: left;
+  }
+
+  .derecha {
+    justify-self: right;
+  }
+
+  .centro {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .full-width{
+      width: 100%;
+  }
+
+  /* Label */
+  mat-label{
+      font-size: 12px;
+      color: $colorTerciario;
+  }
+
+  /* Field */
+
+  .mat-form-field-appearance-outline .mat-form-field-infix{
+      padding: 0.5em 0 !important;
+      font-size: 15px;
+      color: $colorCuatro !important;
+  }
+
+  hr {
+    border: 0.1px solid $colorCinco;
+    margin-bottom: 20px;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 1em !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 !important;
+}
+
+.piepaso{
+    display: grid;
+    grid-template-columns: 50% auto;
+    @include tabletLaptop(){
+        grid-template-columns: 60% auto;
+    }
+    button{
+        grid-column: 2;
+        @include Asmall(){
+            grid-column: 1/3;
+        }
+    }
+}
+
+.mat-error{
+    font-size: 10px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical {
+    background-color: transparent;
+}
+
+.mat-horizontal-stepper-header-container{
+    background-color: $colorSeis;
+    margin: 10px 0;
+    border-radius: 25px;
+    @include tabletLaptop(){
+        margin: 25px 0px 10px 0px;
+    }
+}
+
+.mat-horizontal-content-container{
+    background-color: $colorSeis;
+    border-radius: 25px;
+    padding: 10px 20px !important;
+    background-image: url(../assets/img/fondoStep.svg);
+    background-repeat: no-repeat;
+
+    @include Asmall(){
+        padding: 20 20px !important;
+        border-radius: 10px;
+        border: solid 1px #d7d7d7;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 7px #d7d7d7;
+    }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline{
+    background-color: white;
+    border-radius: 3px;
+}
+
+select.mat-input-element:not(:disabled) {
+    font-size: 12px !important;
+}
+
+.oldDesk{
+    @include Asmall(){
+        display: none;
+    }
+}

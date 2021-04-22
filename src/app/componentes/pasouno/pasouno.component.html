@@ -1,0 +1,73 @@
+<div class="contenedor">
+    <div class="encabezadoPaso">
+        <p class="izquierda">Calcula tu cuota</p>
+        <p class="derecha">* Información requerida</p>
+    </div>
+    <hr>
+
+    <form [formGroup]="primero">
+
+        <mat-label>¿Cuánto dinero necesitas financiar?</mat-label>
+        <mat-form-field appearance="outline" class="full-width">
+            <input 
+            currencyMask
+            type="tel"
+            matInput
+            [options]="{ align: 'left', prefix: '$ ', suffix: '', thousands: '.', decimal: ',', precision: 0 }" 
+            formControlName="monto"
+            >
+            <mat-error *ngIf="montoNoValido">Debes diligenciar mínimo $ {{const.minimo | number:'1.0':'es'}}</mat-error>
+        </mat-form-field>
+
+        <!-- <mat-label>¿Cuál es el precio del vehiculo?</mat-label>
+        <mat-form-field appearance="outline" class="full-width">
+            <input 
+            currencyMask
+            type="tel"
+            matInput
+            [options]="{ align: 'left', prefix: '$ ', suffix: '', thousands: '.', decimal: ',', precision: 0 }" 
+            formControlName="precio"
+            >
+            <mat-error *ngIf="precioNoValido">Debes diligenciar mínimo $ {{const.precioMinimo | number:'1.0':'es'}}</mat-error>
+        </mat-form-field> -->
+
+        <mat-label>¿A cuántos meses quieres pagar?</mat-label>
+        <div class="radiogrupo">
+            <span class="radio" *ngFor="let periodo of const.periodos">
+                <input 
+                type="radio" 
+                name="periodo" 
+                [value]="periodo" 
+                formControlName="periodo"
+                >
+                <div class="mes">{{periodo}} meses</div>
+            </span>
+        </div>
+
+        <div *ngIf="primero.value.cuota !== 0" [@animationFadeOut]="primero.value.cuota">
+            <mat-label>Este será el valor aproximado de la cuota mensual</mat-label>
+            <mat-form-field appearance="outline" class="full-width">
+                <input 
+                currencyMask
+                type="tel"
+                matInput
+                [options]="{ align: 'left', prefix: '$ ', suffix: '', thousands: '.', decimal: ',', precision: 0 }" 
+                formControlName="cuota"
+                readonly
+                >
+                <mat-error *ngIf="montoNoValido">Debes diligenciar mínimo $ {{const.minimo | number:'1.0':'es'}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <hr>
+        <div class="piepaso">
+            <button 
+            mat-button
+            color="primary"
+            class="btnPrimario" 
+            [disabled]="primero.invalid"
+            (click)="consultaCentrales.primeroCompleto = true" 
+            matStepperNext>CONTINUAR <mat-icon>arrow_right_icon</mat-icon></button>
+        </div>
+    </form>
+</div>

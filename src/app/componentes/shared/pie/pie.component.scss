@@ -1,0 +1,29 @@
+@import './../../../../scss/variables';
+@import './../../../../scss/mixins';
+
+.container{
+    display: grid;
+    grid-template-columns: $margenContenido auto $margenContenido;
+    padding: 10px 0;
+    color: white;
+    @include Asmall(){
+        color: black;
+    }
+    @include smallTablet(){
+        grid-template-columns: 20% auto 20%;
+    }
+    @include tabletLaptop(){
+        grid-template-columns: $margenContenido 40% 55%;
+    }
+    p{
+        font-size: 8px;
+        align-self: center;
+        text-align: center;
+    }
+
+    .mensajeComercial{
+        font-size: 20px;
+        color: white;
+        font-weight: 800;
+    }
+}

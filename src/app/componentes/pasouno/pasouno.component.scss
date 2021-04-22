@@ -1,0 +1,76 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+/* Radio Buttons */
+  
+  /* style your lables/button */
+  input[type="radio"] + div {
+    /* keep pointer so that you get the little hand showing when you are on a button */
+    cursor: pointer;
+    font-size: 12px;
+    margin: 5px;
+    border-radius: 3px;
+    padding: 15px;
+    background-color: white;
+    color: $colorTerciario;
+    border: 1px solid $colorTerciario !important;
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center;
+    border: none;
+  
+    
+  }
+  
+  .radio {
+    input[type="radio"]:checked + div {
+      /* style for the checked/selected state */
+      border-radius: 5px;
+      box-shadow: 0px 1px 7px 0px $colorTerciario;
+      background-color: $colorPrimario;
+      color: white;
+      border: none;
+      font-weight: 800;
+  
+      
+    }
+  }
+
+  .radiogrupo{
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto;
+      @include tabletLaptop(){
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        grid-column-gap: 5px;
+        .radio{
+            align-self: center;
+            justify-self: center;
+            width: 100%;
+        }
+        .mes{
+            align-self: center;
+            justify-self: center;
+            width: 100%;
+        }
+    }
+  }
+  
+.radio {
+        display: grid;
+        grid-template-columns: auto;
+        
+    input {
+      opacity: 0;
+      grid-column: 1;
+      grid-row: 1;
+      align-self: center;
+      justify-self: center;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    } 
+    
+  }

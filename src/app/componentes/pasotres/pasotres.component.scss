@@ -1,0 +1,39 @@
+@import '../../../scss/variables';
+
+.contenedor{
+    display: grid;
+    grid-template-rows: auto;
+    height: 65vh;
+    mat-spinner{
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .contenido {
+        grid-row: 1;
+        grid-column: 1;
+    }
+}
+
+.contRespuesta{
+    height: 45vh;
+    display: grid;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    img{
+        justify-self: center;
+        align-self: center;  
+    }
+    .tituloAprobado{
+        color: $aprobado;
+    }
+    .tituloNegado{
+        color: $colorPrimario;
+    }
+    .textoRespuesta{
+        color: $colorCuatro
+    }
+}

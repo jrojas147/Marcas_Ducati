@@ -1,0 +1,10 @@
+<div class="superContenedor">
+    <div *ngIf="splash" class="splash" [@animationFadeOut]="splash">
+        <img [src]="const.cliente" alt="">
+    </div>
+    <div class="contenedor">
+        <app-encabezado></app-encabezado>
+        <app-componentepasos></app-componentepasos>
+        <app-pie></app-pie>
+    </div>
+</div>
