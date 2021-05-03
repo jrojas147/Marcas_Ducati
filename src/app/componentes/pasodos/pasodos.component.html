@@ -8,8 +8,8 @@
         <hr>
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>¿Cómo te llamas?</mat-label>
-            <input 
-            matInput 
+            <input
+            matInput
             formControlName="nombre"
             placeholder="¿Cómo te llamas?*"
             (keypress)="patternCoincide($event, const.patternLetter)"
@@ -17,97 +17,90 @@
             >
             <mat-error *ngIf="nombreNovalido">Diligencia tu nombre completo</mat-error>
           </mat-form-field>
-  
-          <div id="segundo" class="contCampoDos">            
-              
+
+          <div id="segundo" class="contCampoDos">
+
               <mat-form-field id="dobleInput" class="full-width" appearance="outline">
                   <mat-label>Tipo de Identificación</mat-label>
-                  <select 
+                  <select
                       matNativeControl
-                      formControlName="tipoDocumento"
-                  >
-                      <option 
-                      *ngFor="let obj of const.tipoDocumento" 
-                      [ngValue]="obj.value" 
-                      [disabled]="obj.value == 0"
-                      required
-                      >
+                      formControlName="tipoDocumento">
+                      <option
+                      *ngFor="let obj of const.tipoDocumento"
+                      [ngValue]="obj.value"
+                      [disabled]="obj.value === 0"
+                      required>
                       {{obj.name}}</option>
-                  </select>                
+                  </select>
                   <mat-error *ngIf="tipoIdNoValido">Elige una opción</mat-error>
               </mat-form-field>
-  
+
               <mat-form-field id="dobleInput" appearance="outline" class="full-width">
                   <mat-label>Nro. de identificación</mat-label>
-                  <input 
+                  <input
                   matInput
                   type="tel"
-                  formControlName="numeroDocumento" 
+                  formControlName="numeroDocumento"
                   placeholder="Nro. de identificación*"
                   (keypress)="patternCoincide($event, const.patternNumber)"
                   [maxlength]="segundo.controls['tipoDocumento'].value == 2 ? 6 : 11"
                   required
-                  >                
+                  >
                   <mat-error *ngIf="idNoValido">Diligencia este campo</mat-error>
                   <div class="advertencia" *ngIf="documentoExtranjeria">¡Por favor verifica si es una cédula de extranjeria!</div>
-                </mat-form-field>           
-  
+                </mat-form-field>
+
           </div>
-  
+
           <mat-form-field appearance="outline" class="full-width">
               <mat-label>Número de celular</mat-label>
-              <input 
+              <input
               matInput
               type="tel"
-              maxlength="10" 
+              maxlength="10"
               formControlName="celular"
               placeholder="Número de celular*"
               (keypress)="patternCoincide($event, const.patternNumber)"
-              required
-              >
+              required>
               <mat-error *ngIf="celularNoValido">Diligencia un número de celular válido</mat-error>
             </mat-form-field>
-  
+
             <mat-form-field appearance="outline" class="full-width">
               <mat-label>Correo electrónico</mat-label>
-              <input 
-              matInput 
+              <input
+              matInput
               formControlName="correoPersonal"
               placeholder="Correo electrónico*"
-              required
-              >
+              required>
               <mat-error *ngIf="correoNoValido">Diligencia un correo electronico válido</mat-error>
             </mat-form-field>
-  
+
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Selecciona tu ocupación</mat-label>
-              <select 
+              <select
                   matNativeControl
-                  formControlName="actividadEconomica"
-              >
-                  <option 
-                  *ngFor="let obj of const.ocupaciones" 
-                  [ngValue]="obj.value" 
+                  formControlName="actividadEconomica">
+                  <option
+                  *ngFor="let obj of const.ocupaciones"
+                  [ngValue]="obj.value"
                   [disabled]="obj.value == 0"
-                  required
-                  >
+                  required>
                   {{obj.name}}</option>
               </select>
               <mat-error *ngIf="actividadEconomicaNoValido">Necesitamos saber tu ocupación</mat-error>
           </mat-form-field>
-  
+
           <mat-form-field appearance="outline" class="full-width">
               <mat-label>¿Cuáles son tus ingresos mensuales?</mat-label>
-              <input 
+              <input
               matInput
               type="tel"
-              currencyMask 
+              currencyMask
               placeholder="¿Cuáles son tus ingresos mensuales?*"
-              [options]="{ align: 'left', prefix: '$ ', suffix: '', thousands: '.', decimal: ',', precision: 0 }" 
+              [options]="{ align: 'left', prefix: '$ ', suffix: '', thousands: '.', decimal: ',', precision: 0 }"
               formControlName="ingresoMensual"
               (keypress)="patternCoincide($event, const.patternNumber)"
-              required
-              >
+              required>
               <mat-error *ngIf="ingresoMensualNoValido">Diligencia tus ingresos mensuales</mat-error>
               <mat-error *ngIf="minimoingresoMensualNoValido">Diligencia mínimo $ {{ this.const.valorMinIngreso | number:'1.0':'es' }}</mat-error>
             </mat-form-field>
@@ -116,18 +109,18 @@
                 <img class="centro" [src]="const.santanderGris" alt="">
                 <p>SANTANDER CONSUMER o el TERCERO AUTORIZADO quedan autorizados para obtener información sobre mis relaciones comerciales con otras entidades y consultar mis reportes ante las centrales de información.</p>
             </div>
-  
+
             <div id="check" class="contCampoUno center">
-  
-            <mat-checkbox 
+
+            <mat-checkbox
               required
               color="primary"
               value=""
               formControlName="autorizaConsultaCentrales"
               ></mat-checkbox>
               Acepto los <strong class="pointer" (click)="respuestaCalculadora.toggleMostrarModal()">términos y condiciones</strong>
-  
-            </div>          
+
+            </div>
             <hr>
           <div class="piepaso">
             <button
@@ -138,6 +131,5 @@
             [disabled] = "segundo.invalid"
             >CONTINUAR<mat-icon>arrow_right_icon</mat-icon></button>
         </div>
-
     </form>
 </div>

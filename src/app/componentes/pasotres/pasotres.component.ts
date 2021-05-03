@@ -22,7 +22,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class PasotresComponent {
-
   resultado: number;
   const = Constantes;
 
@@ -32,7 +31,7 @@ export class PasotresComponent {
 
    viabilizar() {
     this.consultaCentrales.observableAutenticar.subscribe((value: number) => {
-      
+
       if (value === 1) {
       /* this.editable = false; */
       if (this.consultaCentrales.contactoCentrales.DatosFinancieros.ActividadEconomica) {
@@ -52,17 +51,13 @@ export class PasotresComponent {
       this.consultaCentrales.respuesta(this.consultaCentrales.contactoCentrales).subscribe((res: any) => {
         this.resultado = res.IdResultado;
       });
-
     }
-
   });
-
 }
 
 gotoReferrer() {
   window.location.href = this.consultaCentrales.linkOrigen;
-}
-
+  }
 }
 
 
