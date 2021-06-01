@@ -32,7 +32,8 @@ export class ConsultaCentralesService {
       UsuarioRadica: null,
       ConcesionarioRadicacion: null,
       IdentificacionVendedor: null,
-      InfoTres: 'ltafur@domingoalonsogroup.com;sebastianmartinez@colwagen.com;estefaniapinilla@finazul.co;j.caceresc@santanderconsumer.co'
+      InfoTres: 'ltafur@domingoalonsogroup.com;sebastianmartinez@colwagen.com;estefaniapinilla@finazul.co;j.caceresc@santanderconsumer.co',
+      CodigoSefi: 0
     },
     DatosVehiculo: {
       Marca: 25
@@ -66,7 +67,7 @@ export class ConsultaCentralesService {
   autenticando() {
 
     // Get Scan Params
-    this.contactoCentrales.OtrosDatos.ConcesionarioRadicacion = this.scanParams.idc; 
+    this.contactoCentrales.OtrosDatos.ConcesionarioRadicacion = this.scanParams.idc;
     this.contactoCentrales.OtrosDatos.IdentificacionVendedor = this.scanParams.idv;
     this.contactoCentrales.OtrosDatos.InfoUno = this.scanParams.utm;
 

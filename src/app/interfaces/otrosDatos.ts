@@ -7,4 +7,5 @@ export interface OtrosDatos {
     IdentificacionVendedor?: number;
     InfoTres: string;
     InfoUno?: string;
+    CodigoSefi?: number;
 }

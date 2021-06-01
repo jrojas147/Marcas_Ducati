@@ -109,16 +109,20 @@
                 <img class="centro" [src]="const.santanderGris" alt="">
                 <p>SANTANDER CONSUMER o el TERCERO AUTORIZADO quedan autorizados para obtener información sobre mis relaciones comerciales con otras entidades y consultar mis reportes ante las centrales de información.</p>
             </div>
-
             <div id="check" class="contCampoUno center">
 
-            <mat-checkbox
+
+
+              <mat-checkbox
               required
               color="primary"
               value=""
               formControlName="autorizaConsultaCentrales"
               ></mat-checkbox>
-              Acepto los <strong class="pointer" (click)="respuestaCalculadora.toggleMostrarModal()">términos y condiciones</strong>
+              <!-- Acepto los <strong class="pointer" (click)="respuestaCalculadora.toggleMostrarModal()">términos y condiciones</strong> -->
+                <a href="https://santanderconsumer.co/tyccu/" target="_blank">
+                    Acepto los <strong class="pointer">términos y condiciones</strong>
+                </a>
 
             </div>
             <hr>
