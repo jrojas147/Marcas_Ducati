@@ -1,60 +1,56 @@
 <div class="contenedor">
-    <mat-spinner *ngIf="!resultado" [@animationFadeOut]="resultado"></mat-spinner>
-    <div class="contenido">
+  <mat-spinner *ngIf="!resultado" [@animationFadeOut]="resultado"></mat-spinner>
+  <div class="contenido">
     <div class="encabezadoPaso">
-        <p class="izquierda">Respuesta a tu solicitud</p>
+      <p class="izquierda">Respuesta a tu solicitud</p>
     </div>
     <hr>
-
     <div class="contRespuesta">
-        <div [ngSwitch]="resultado" [@animationFadeOut]="resultado">
-            <div *ngSwitchCase="2"><!-- Preaprobado -->
-                <div class="contRespuesta">
-                    <img [src]="const.aprobado" alt="">
-                    <p class="tituloAprobado">¡Tu solicitud es viable!</p>
-                    <p class="textoRespuesta">En menos de 24 horas uno de nuestros asesores se comunicará contigo para continuar la solicitud de crédito.</p>
-                </div>
-            </div>
-            <div *ngSwitchCase="3"><!-- Aprobado con documentos -->
-                <div class="contRespuesta">
-                    <img [src]="const.aprobado" alt="">
-                    <p class="tituloAprobado">¡Tu solicitud es viable!</p>
-                    <p class="textoRespuesta">En menos de 24 horas uno de nuestros asesores se comunicará contigo para continuar la solicitud de crédito.</p>
-                </div>
-            </div>
-            <div *ngSwitchCase="4"><!-- Aprobado sin documentos -->
-                <div class="contRespuesta">
-                    <img [src]="const.aprobado" alt="">
-                    <p class="tituloAprobado">¡Tu solicitud es viable!</p>
-                    <p class="textoRespuesta">En menos de 24 horas uno de nuestros asesores se comunicará contigo para continuar la solicitud de crédito.</p>
-                </div>
-            </div>
-            <div *ngSwitchCase="1"><!-- Negado -->
-                <div class="contRespuesta">
-                    <img [src]="const.negado" alt="">
-                    <p class="tituloNegado">¡Tu solicitud no es viable!</p>
-                    <p class="textoRespuesta">Uno de nuestros asesores se comunicará contigo para explorar alternativas.</p>
-                </div>
-            </div>
-            <div *ngSwitchCase="-1"><!-- Error de sistema -->
-                <div class="contRespuesta">
-                    <img [src]="const.negado" alt="">
-                    <p class="tituloNegado">¡Tu solicitud no es viable!</p>
-                    <p class="textoRespuesta">Uno de nuestros asesores se comunicará contigo para explorar alternativas.</p>
-                </div>
-            </div>
-            <div *ngSwitchDefault></div>
+      <div [@animationFadeOut]="resultado">
+        <!-- APROBADO  -->
+        <div *ngIf="letraMensaje === 'A' || letraMensaje === 'B' || letraMensaje === 'C' ">
+          <div class="contRespuesta">
+            <img [src]="const.aprobado" alt="">
+            <p class="tituloAprobado">¡Tu solicitud es viable!</p>
+            <p class="textoRespuesta">Pronto uno de nuestros asesores te llamara para acompañarte hasta que tengas tu   vehículo.</p>
+          </div>
         </div>
-    </div>
-    <hr>
-    <div *ngIf="resultado" [@animationFadeOut]="resultado" class="piepaso">
-        <button
-        color="primary"
-        (click)="gotoReferrer()"
-        mat-button
-        matStepperNext
-        >FINALIZAR<mat-icon>arrow_right_icon</mat-icon></button>
+        <!--Respuesta D-->
+        <div *ngIf="letraMensaje === 'D'">
+          <div class="contRespuesta">
+            <img [src]="const.negado" alt="">
+            <p class="tituloNegado">¡Lo sentimos!</p>
+            <p class="textoRespuesta">Tu solicitud no es viable en este momento.</p>
+          </div>
+        </div>
+        <!--Respuesta E-->
+        <div *ngIf="letraMensaje === 'E'">
+          <div class="contRespuesta">
+            <img [src]="const.negado" alt="">
+            <p class="tituloNegado">¡Ups ocurrió un error!</p>
+            <p class="textoRespuesta">Tuvimos un problema, por favor intenta más tarde.</p>
+          </div>
+        </div>
+        <!--Respuesta Null-->
+        <div *ngIf="letraMensaje === null ">
+          <div class="contRespuesta">
+            <img [src]="const.negado" alt="">
+            <p class="tituloNegado">¡Ups ocurrió un error!</p>
+            <p class="textoRespuesta">Tuvimos un problema, por favor intenta más tarde.</p>
+          </div>
+        </div>
       </div>
     </div>
-
+    <hr>
+    <div class="contBotonPaso">
+      <div *ngIf="resultado" [@animationFadeOut]="resultado" class="piepaso">
+        <!-- <a [href]="const.webAliado" target="_blank" > -->
+        <a>
+          <button color="primary" id="finalizar" (click)="gotoReferrer()" mat-button matStepperNext>Volver a {{
+            const.nombreCliente }}<mat-icon>arrow_right_icon</mat-icon>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

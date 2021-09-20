@@ -1,10 +1,11 @@
 const nombreCliente = 'Ducati';
 
 export const Constantes = {
+  nombreCliente: "Ducati",
     periodos: [48, 60, 72, 84],
     minimo: 10000000,
     precioMinimo: 40000000,
-    valorMinIngreso: 10000,
+    valorMinIngreso: 1200000,
     tasa: 0.0115,
     constanteSeguro: 1220 / 1000000,
      /* Regex */
