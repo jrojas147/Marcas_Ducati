@@ -11,7 +11,7 @@
         <div *ngIf="letraMensaje === 'A' || letraMensaje === 'B' || letraMensaje === 'C' ">
           <div class="contRespuesta">
             <img [src]="const.aprobado" alt="">
-            <p class="tituloAprobado">¡Tu solicitud es viable!</p>
+            <h1 class="tituloAprobado">¡Tu solicitud es viable!</h1>
             <p class="textoRespuesta">Pronto uno de nuestros asesores te llamara para acompañarte hasta que tengas tu   vehículo.</p>
           </div>
         </div>
@@ -19,7 +19,7 @@
         <div *ngIf="letraMensaje === 'D'">
           <div class="contRespuesta">
             <img [src]="const.negado" alt="">
-            <p class="tituloNegado">¡Lo sentimos!</p>
+            <h2 class="tituloNegado">¡Lo sentimos!</h2>
             <p class="textoRespuesta">Tu solicitud no es viable en este momento.</p>
           </div>
         </div>
@@ -27,7 +27,7 @@
         <div *ngIf="letraMensaje === 'E'">
           <div class="contRespuesta">
             <img [src]="const.negado" alt="">
-            <p class="tituloNegado">¡Ups ocurrió un error!</p>
+            <h2 class="tituloNegado">¡Ups ocurrió un error!</h2>
             <p class="textoRespuesta">Tuvimos un problema, por favor intenta más tarde.</p>
           </div>
         </div>
@@ -35,7 +35,7 @@
         <div *ngIf="letraMensaje === null ">
           <div class="contRespuesta">
             <img [src]="const.negado" alt="">
-            <p class="tituloNegado">¡Ups ocurrió un error!</p>
+            <h2 class="tituloNegado">¡Ups ocurrió un error!</h2>
             <p class="textoRespuesta">Tuvimos un problema, por favor intenta más tarde.</p>
           </div>
         </div>
